@@ -1,9 +1,6 @@
 package com.kodilla.testing.collection;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 
@@ -18,26 +15,38 @@ public class CollectionTestSuite {
         System.out.println("Test Case: end");
     }
 
+    @BeforeAll
+    public static void beforeAll() {
+        System.out.println("Test Suite: begin");
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        System.out.println("Test Suite: end");
+    }
+
     @DisplayName("when list is empty, " +
             "then collection should contain no odd numbers"
     )
 
     @Test
     public void testOddNumbersExterminatorEmptyList() {
-        boolean noOddNumbers = true;
+
+        //Given
         ArrayList<Integer> entryData = new ArrayList<>();
+
+        //When
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         oddNumbersExterminator.exterminate(entryData);
+        boolean noOddNumbers = true;
         for (Integer entry : oddNumbersExterminator.exterminate(entryData))
             if (entry % 2 != 0) {
                 noOddNumbers = false;
                 break;
             }
 
-        if (noOddNumbers)
-            System.out.println("Test OK");
-        else
-            System.out.println("OddNumbersExterminator ERROR");
+        //Then
+        Assertions.assertEquals(true, noOddNumbers);
 
     }
 
@@ -47,23 +56,23 @@ public class CollectionTestSuite {
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
-        boolean noOddNumbers = true;
+
+        //Given
         ArrayList<Integer> entryData = new ArrayList<>();
         for (int i = 0; i < 100; i++)
             entryData.add(i);
 
+        //When
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         oddNumbersExterminator.exterminate(entryData);
+        boolean noOddNumbers = true;
         for (Integer entry : oddNumbersExterminator.exterminate(entryData))
             if (entry % 2 != 0) {
                 noOddNumbers = false;
                 break;
             }
 
-        if (noOddNumbers)
-            System.out.println("Test OK");
-        else
-            System.out.println("OddNumbersExterminator ERROR");
-
+        //Then
+        Assertions.assertEquals(true, noOddNumbers);
     }
 }
