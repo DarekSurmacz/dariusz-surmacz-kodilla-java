@@ -46,7 +46,7 @@ public class CollectionTestSuite {
             }
 
         //Then
-        Assertions.assertEquals(true, noOddNumbers);
+        Assertions.assertTrue(noOddNumbers);
 
     }
 
@@ -73,6 +73,6 @@ public class CollectionTestSuite {
             }
 
         //Then
-        Assertions.assertEquals(true, noOddNumbers);
+        Assertions.assertTrue(noOddNumbers);
     }
 }
