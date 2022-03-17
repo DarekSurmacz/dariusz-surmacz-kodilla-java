@@ -19,11 +19,19 @@ class WeatherForecastTestSuite {
 
     @Mock
     private Temperatures temperaturesMock;
-    Map<String, Double> temperaturesMap = new HashMap<>();
+
+    static Map<String, Double> temperaturesMap;
 
     @BeforeAll
     public static void beforeAllTest() {
         System.out.println("This is the beginning of tests.");
+
+        temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
     }
 
     @AfterAll
@@ -35,11 +43,7 @@ class WeatherForecastTestSuite {
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
-        temperaturesMap.put("Rzeszow", 25.5);
-        temperaturesMap.put("Krakow", 26.2);
-        temperaturesMap.put("Wroclaw", 24.8);
-        temperaturesMap.put("Warszawa", 25.2);
-        temperaturesMap.put("Gdansk", 26.1);
+
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
     }
 
