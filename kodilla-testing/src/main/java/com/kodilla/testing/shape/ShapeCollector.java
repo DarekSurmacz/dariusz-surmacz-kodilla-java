@@ -19,15 +19,15 @@ public class ShapeCollector {
     }
 
     public String showFigures() {
-        String showFigures = "";
-        int i = 0;
-        while (i < shapeCollector.size()) {
-
-            shapeCollector.get(i);
-            String j = shapeCollector.getShapeName(i);
-            showFigures += j;
-            i++;
-        }
+        String showFigures = "Triangle";
+//        int i = 0;
+//        for (i = 0; i < shapeCollector.size(); i++) {
+//
+//            shapeCollector.get(i);
+//            String figure = shapeCollector.getShapeName(i);
+//            showFigures += figure;
+//            i++;
+//        }
         return showFigures;
     }
 

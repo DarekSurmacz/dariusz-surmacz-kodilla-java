@@ -35,7 +35,6 @@ class WeatherForecastTestSuite {
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
-        Map<String, Double> temperaturesMap = new HashMap<>();
         temperaturesMap.put("Rzeszow", 25.5);
         temperaturesMap.put("Krakow", 26.2);
         temperaturesMap.put("Wroclaw", 24.8);
@@ -65,12 +64,29 @@ class WeatherForecastTestSuite {
     }
 
     @Test
-    void testMedianTemperatureWithMock() {
+    void testMedianTemperatureWithMockOdd() {
         //Given
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
         //When
         Double medianTemperature = weatherForecast.medianTemperature();
         //Then
         Assertions.assertEquals(25.5, medianTemperature);
+    }
+
+    @Test
+    void testMedianTemperatureWithMockEven() {
+        //Given
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        //When
+        Double medianTemperature = weatherForecast.medianTemperature();
+        //Then
+        Assertions.assertEquals(25.35, medianTemperature);
+
     }
 }

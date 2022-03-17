@@ -47,13 +47,17 @@ public class WeatherForecast {
         for (Map.Entry<String, Double> temperature : temperatures.getTemperatures().entrySet()) {
             temperaturesList.add(temperature.getValue());
         }
+
         Collections.sort(temperaturesList);
+
+        int listSize = temperaturesList.size();
+
         if (temperaturesList.size() % 2 == 0) {
-            middleValuesSum = temperaturesList.get(temperaturesList.size() / 2)
-                    + temperaturesList.get(temperaturesList.size() / 2 - 1);
+            middleValuesSum = temperaturesList.get(listSize / 2)
+                    + temperaturesList.get(listSize / 2 - 1);
             median = middleValuesSum / 2;
         } else {
-            median = temperaturesList.get(temperaturesList.size() / 2);
+            median = temperaturesList.get(listSize / 2);
         }
 
         return median;
