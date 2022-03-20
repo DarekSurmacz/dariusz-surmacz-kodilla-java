@@ -1,6 +1,5 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
@@ -26,21 +25,21 @@ public class StreamMain {
 //        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
 //        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 //
-        //POEM BEAUTIFIER
-        System.out.println("\nCalculating expressions with lambdas:");
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("A stinky and disgusting poem.", poem -> "$$$ " + poem + " $$$");
-        poemBeautifier.beautify("A stinky and disgusting poem.", poem -> "RAINBOW!!! " + poem + " PONNY!!!");
-        poemBeautifier.beautify("A stinky and disgusting poem.", poem -> "HELL!!! " + poem + " DESTRUCTION!!!");
-        poemBeautifier.beautify("Bad poem", poem -> "Good poem.");
-        poemBeautifier.beautify("Bad poem", poem -> String.valueOf(poem.hashCode()));
-
-        System.out.println("\nCalculating expressions with method references:");
-        poemBeautifier.beautify("A stinky and disgusting poem.", poemBeautifier::addingWealthInFrontAndBack);
-        poemBeautifier.beautify("A disgusting and stinky poem", poemBeautifier::toUpperCase);
-        poemBeautifier.beautify("A disgusting and stinky poem", poemBeautifier::toLowerCase);
-        poemBeautifier.beautify("    A disgusting and stinky poem.   ", poemBeautifier::trim);
-        poemBeautifier.beautify("6", poemBeautifier::repeat616Times);
+//        //POEM BEAUTIFIER 7.1
+//        System.out.println("\nCalculating expressions with lambdas:");
+//        PoemBeautifier poemBeautifier = new PoemBeautifier();
+//        poemBeautifier.beautify("A stinky and disgusting poem.", poem -> "$$$ " + poem + " $$$");
+//        poemBeautifier.beautify("A stinky and disgusting poem.", poem -> "RAINBOW!!! " + poem + " PONNY!!!");
+//        poemBeautifier.beautify("A stinky and disgusting poem.", poem -> "HELL!!! " + poem + " DESTRUCTION!!!");
+//        poemBeautifier.beautify("Bad poem", poem -> "Good poem.");
+//        poemBeautifier.beautify("Bad poem", poem -> String.valueOf(poem.hashCode()));
+//
+//        System.out.println("\nCalculating expressions with method references:");
+//        poemBeautifier.beautify("A stinky and disgusting poem.", poemBeautifier::addingWealthInFrontAndBack);
+//        poemBeautifier.beautify("A disgusting and stinky poem", poemBeautifier::toUpperCase);
+//        poemBeautifier.beautify("A disgusting and stinky poem", poemBeautifier::toLowerCase);
+//        poemBeautifier.beautify("    A disgusting and stinky poem.   ", poemBeautifier::trim);
+//        poemBeautifier.beautify("6", poemBeautifier::repeat616Times);
 //
 //        //Numbers Generator
 //        System.out.println("\nUsing Stream to generate even numbers from 1 to 20:");
@@ -68,7 +67,7 @@ public class StreamMain {
 //                .map(entry -> entry.getKey() + ": " + entry.getValue())                   // [3]
 //                .forEach(System.out::println);
 
-        //ForumUser
+        //ForumUser 7.3
         final Forum forum = new Forum();
 
         Map<String, ForumUser> theResultListOfUsers = forum.getList().stream()
