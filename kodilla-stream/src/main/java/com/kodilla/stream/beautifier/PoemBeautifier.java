@@ -12,6 +12,8 @@ public class PoemBeautifier {
 
     public String toUpperCase(String poem) {return poem.toUpperCase();}
 
+    public String toLowerCase(String poem) {return poem.toLowerCase();}
+
     public String trim(String poem) {return poem.trim();}
 
     public String repeat616Times(String poem) {return poem.repeat(616);}
