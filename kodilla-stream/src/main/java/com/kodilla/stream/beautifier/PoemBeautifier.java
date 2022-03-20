@@ -14,6 +14,6 @@ public class PoemBeautifier {
 
     public String trim(String poem) {return poem.trim();}
 
-    public String repeat616thTimes(String poem) {return poem.repeat(616);}
+    public String repeat616Times(String poem) {return poem.repeat(616);}
 
 }
