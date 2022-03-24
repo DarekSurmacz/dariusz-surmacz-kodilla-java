@@ -8,7 +8,8 @@ public interface ArrayOperations {
 
         IntStream.range(0, numbers.length)
                 .map(n -> numbers[n])
-                .forEach(n -> System.out.println(n));
+                .forEach(System.out::println);
+
 
         double average = IntStream.range(0, numbers.length)
                 .map(n -> numbers[n])
