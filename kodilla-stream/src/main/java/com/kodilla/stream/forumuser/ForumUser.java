@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public final class ForumUser {
-    private final String userId;
+    private final int userId;
     private final String userName;
     private final char sex;
     private final LocalDate birthDate;
     private final int numberOfPosts;
 
-    public ForumUser(String userId, String userName, char sex,
+    public ForumUser(int userId, String userName, char sex,
                      int yearOfBirth, int monthOfBirth, int dayOfBirth, int numberOfPosts) {
         this.userId = userId;
         this.userName = userName;
@@ -20,7 +20,7 @@ public final class ForumUser {
     }
 
     public String getUserId() {
-        return userId;
+        return String.valueOf(userId);
     }
 
     public String getUserName() {
