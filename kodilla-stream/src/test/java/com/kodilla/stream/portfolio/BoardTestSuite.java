@@ -151,7 +151,7 @@ class BoardTestSuite {
         //Given
         Board project = prepareTestData();
         //When
-        double averageWorkinOnTask = project.getTaskLists().stream()
+        double averageWorkingOnTask = project.getTaskLists().stream()
                 .filter(t -> t.getName().equals("In progress"))
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(task -> DAYS.between(task.getCreated(), LocalDate.now()))
@@ -162,6 +162,6 @@ class BoardTestSuite {
 //        Utwórz wymagane zmienne pomocnicze, a następnie uruchom strumień na kolekcji getTaskLists klasy Board.
 //        Napisz sekwencję funkcji obliczającą średni czas wykonywania zadania z listy "In Progress".
         //Then
-        assertEquals(10, averageWorkinOnTask);
+        assertEquals(10, averageWorkingOnTask);
     }
 }
