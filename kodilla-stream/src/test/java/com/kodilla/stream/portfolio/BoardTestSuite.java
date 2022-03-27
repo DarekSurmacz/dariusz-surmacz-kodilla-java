@@ -153,7 +153,7 @@ class BoardTestSuite {
         //When
         double averageWorkingOnTask = project.getTaskLists().stream()
                 .filter(task -> task.getName().equals("In progress"))
-                .flatMap(task -> task.getTasks().stream())
+                .flatMap(taskList -> taskList.getTasks().stream())
                 .map(task -> DAYS.between(task.getCreated(), LocalDate.now()))
                         .mapToInt(Math::toIntExact)
                                 .average().orElse(0);
