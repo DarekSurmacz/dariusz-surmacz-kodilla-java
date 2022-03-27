@@ -152,8 +152,8 @@ class BoardTestSuite {
         Board project = prepareTestData();
         //When
         double averageWorkingOnTask = project.getTaskLists().stream()
-                .filter(t -> t.getName().equals("In progress"))
-                .flatMap(tl -> tl.getTasks().stream())
+                .filter(task -> task.getName().equals("In progress"))
+                .flatMap(task -> task.getTasks().stream())
                 .map(task -> DAYS.between(task.getCreated(), LocalDate.now()))
                         .mapToInt(Math::toIntExact)
                                 .average().orElse(0);
