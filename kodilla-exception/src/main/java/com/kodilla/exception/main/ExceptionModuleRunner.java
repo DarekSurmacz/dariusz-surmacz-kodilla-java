@@ -13,5 +13,13 @@ public class ExceptionModuleRunner {
         } catch (FileReaderException e) {
             System.out.println("Problem while reading a file!");
         }
+
+        FileReader fileReader2 = new FileReader();
+
+        try {
+            fileReader2.readFile();
+        } catch (FileReaderException e) {
+            System.out.println("Problem while reading a file!");
+        }
     }
 }
