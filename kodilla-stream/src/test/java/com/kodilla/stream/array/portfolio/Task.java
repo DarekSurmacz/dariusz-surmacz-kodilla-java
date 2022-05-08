@@ -1,4 +1,4 @@
-package com.kodilla.stream.portfolio;
+package com.kodilla.stream.array.portfolio;
 
 import java.time.LocalDate;
 

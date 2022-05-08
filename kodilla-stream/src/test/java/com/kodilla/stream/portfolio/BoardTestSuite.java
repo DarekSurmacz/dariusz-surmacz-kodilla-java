@@ -1,5 +1,9 @@
 package com.kodilla.stream.portfolio;
 
+import com.kodilla.stream.array.portfolio.Board;
+import com.kodilla.stream.array.portfolio.Task;
+import com.kodilla.stream.array.portfolio.TaskList;
+import com.kodilla.stream.array.portfolio.User;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

@@ -28,6 +28,4 @@ class MovieStore {
 
         return booksTitlesWithTranslations;
     }
-//    wykonaj iterację po mapie tytułów i wyświetl wszystkie tytuły w jednym ciągu
-//    separując je wykrzyknikiem
 }
