@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DrawerTesSuite {
+public class DrawerTestSuite {
 
     @Test
     void testDoDrawingWithCircle() {
