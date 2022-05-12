@@ -26,10 +26,26 @@ public class LoggerTestSuite {
         Logger logger = Logger.INSTANCE;
 
         //When
-        logger.log("Login123");
+        logger.log("LastLog");
         String logName = logger.getLastLog();
 
         //Then
-        assertEquals("Login123", logName);
+        assertEquals("LastLog", logName);
+    }
+
+    @Test
+    void testGetLastLogWhenMoreLogs() {
+        //Given
+        Logger logger = Logger.INSTANCE;
+
+        //When
+        logger.log("NotTheLastLog");
+        logger.log("SomeLogButNotLast");
+        logger.log("Log(NotLast)");
+        logger.log("LastLog");
+        String logName = logger.getLastLog();
+
+        //Then
+        assertEquals("LastLog", logName);
     }
 }
