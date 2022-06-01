@@ -1,6 +1,5 @@
 package com.kodilla.hibernate.tasklist.dao;
 
-import com.kodilla.hibernate.task.dao.TaskDao;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,26 +11,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class TaskListDaoTestSuite {
-    //    czy metoda findByListName(String listName) działa poprawnie.
+
     @Autowired
-    private TaskListDao taskListDao;
-    private static final String DESCRIPTION = "Test: Learn Hibernate";
+    TaskListDao taskListDao;
+
+    private static final String DESCRIPTION = "Test: Learn Hibernate (part 2)";
+    private static final String LISTNAME = "List";
 
     @Test
-    void testFindByListName() {
+    public void testTaskListDao() {
+
         //Given
         TaskList taskList = new TaskList(LISTNAME, DESCRIPTION);
+        taskListDao.save(taskList);
 
         //When
-        taskListDao.save(taskList);
-        int id = taskList.getId();
-        List<TaskList> readTaskList = taskListDao.findByListName(LISTNAME);
+        List<TaskList> actualList = taskListDao.findByListName(taskList.getListName());
+        int actualTaskListSize = actualList.size();
+        String actualTaskListName = taskList.getListName();
 
         //Then
-        assertEquals(1, readTaskList.size());
+        assertEquals(1, actualTaskListSize);
+        assertEquals(LISTNAME, actualTaskListName);
 
-        //ClenUp
-        taskListDao.deleteById(id);
+        //Clean up
+        taskListDao.delete(taskList);
     }
+
 
 }
