@@ -32,6 +32,7 @@ public class Item {
         return id;
     }
 
+    //    relacja N:1 z encją Product
     @ManyToOne(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
@@ -61,7 +62,7 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "INVOICE_ID")
-    public Invoice getInvoice(){
+    public Invoice getInvoice() {
         return invoice;
     }
 

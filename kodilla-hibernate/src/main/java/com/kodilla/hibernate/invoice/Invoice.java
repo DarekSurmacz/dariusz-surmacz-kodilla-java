@@ -33,6 +33,7 @@ public class Invoice {
         return number;
     }
 
+    //relacja 1:N z encją Item
     @OneToMany(
             mappedBy = "invoice",
             cascade = CascadeType.ALL,

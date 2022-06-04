@@ -14,13 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
+public
 class TaskListDaoTestSuite {
 
     @Autowired
     TaskListDao taskListDao;
 
     private static final String DESCRIPTION = "Test: Learn Hibernate (part 2)";
-    private static final String LISTNAME = "List";
+    public static final String LISTNAME = "List";
 
     @Test
     public void testTaskListDao() {
@@ -67,5 +68,4 @@ class TaskListDaoTestSuite {
         //CleanUp
         taskListDao.deleteById(id);
     }
-
 }
