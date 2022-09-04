@@ -74,7 +74,7 @@ class CompanyDaoTestSuite {
         employeeDao.save(brianGreen);
 
         //When
-        List<Employee> result = employeeDao.searchByLastName("Smith");
+        List<Employee> result = employeeDao.searchEmployeeByLastName("Smith");
 
         //Then
         assertEquals(1, result.size());
@@ -95,7 +95,7 @@ class CompanyDaoTestSuite {
         companyDao.save(cccdddeee);
 
         //When
-        List<Company> result = companyDao.searchByThreeFirstLetters("aaa");
+        List<Company> result = companyDao.searchCompanyByThreeFirstLetters("aaa");
 
         //Then
         assertEquals(2, result.size());
