@@ -19,7 +19,7 @@ public class PizzaOrderTestSuite {
     }                                                     // [11]
 
     @Test                                                 // [12]
-    public void testBasicTaxiOrderGetDescription() {      // [13]
+    public void testBasicPizzaOrderGetDescription() {      // [13]
         // Given
         PizzaOrder theOrder = new BasicPizzaOrder();         // [14]
         // When
