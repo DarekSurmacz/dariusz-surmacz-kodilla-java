@@ -36,8 +36,7 @@ class SearchFacadeTestSuite {
     }
 
     @Test
-    void testFindCompanyByPartOfName() {
-        try {
+    void testFindCompanyByPartOfName() throws SearchException {
             //Given
             companyDao.save(greatCompany);
 
@@ -46,13 +45,11 @@ class SearchFacadeTestSuite {
 
             //Then
             assertEquals("Great Company", companies.get(0).getName());
-        } catch (SearchException e) {
+
             System.out.println(SearchException.ERR_COMPANY_NOT_EXIST);
-        } finally {
 
             //CleanUp
             companyDao.deleteById(greatCompany.getId());
-        }
     }
 
     @Test
