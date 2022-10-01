@@ -11,7 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class SearchFacadeTestSuite {
@@ -29,7 +30,6 @@ class SearchFacadeTestSuite {
     Company greatCompany = new Company("Great Company");
 
     @BeforeEach
-
     void beforeEveryTest() {
         greatCompany.getEmployees().add(janKowalski);
         janKowalski.getCompanies().add(greatCompany);
@@ -37,39 +37,36 @@ class SearchFacadeTestSuite {
 
     @Test
     void testFindCompanyByPartOfName() throws SearchException {
-            //Given
-            companyDao.save(greatCompany);
 
-            //When
-            List<Company> companies = searchFacade.searchCompanyByPartOfName("eat");
+        //Given
+        companyDao.save(greatCompany);
 
-            //Then
-            assertEquals("Great Company", companies.get(0).getName());
+        //When
+        List<Company> companies = searchFacade.searchCompanyByPartOfName("eaat");
 
-            System.out.println(SearchException.ERR_COMPANY_NOT_EXIST);
+        //Then
+        assertEquals("Great Company", companies.get(0).getName());
+        assertDoesNotThrow(() -> SearchException.ERR_COMPANY_NOT_EXIST);
 
-            //CleanUp
-            companyDao.deleteById(greatCompany.getId());
+        //CleanUp
+        companyDao.deleteById(greatCompany.getId());
     }
 
     @Test
-    void testFindEmployeeByPartOfName() {
-        try {
-            //Given
-            employeeDao.save(janKowalski);
+    void testFindEmployeeByPartOfName() throws SearchException {
 
-            //When
-            List<Employee> employees = searchFacade.searchEmployeeByPartOfName("ow");
+        //Given
+        employeeDao.save(janKowalski);
 
-            //Then
-            assertEquals("Jan", employees.get(0).getFirstname());
-            assertEquals("Kowalski", employees.get(0).getLastname());
-        } catch (SearchException e) {
-            System.out.println(SearchException.ERR_EMPLOYEE_NOT_EXIST);
-        } finally {
+        //When
+        List<Employee> employees = searchFacade.searchEmployeeByPartOfName("ow");
 
-            //CleanUp
-            employeeDao.deleteById(janKowalski.getId());
-        }
+        //Then
+        assertEquals("Jan", employees.get(0).getFirstname());
+        assertEquals("Kowalski", employees.get(0).getLastname());
+        assertDoesNotThrow(() -> SearchException.ERR_EMPLOYEE_NOT_EXIST);
+
+        //CleanUp
+        employeeDao.deleteById(janKowalski.getId());
     }
 }

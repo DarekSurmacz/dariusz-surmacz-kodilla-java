@@ -8,20 +8,20 @@ import java.util.List;
 @NamedNativeQueries({
         @NamedNativeQuery(
                 name = "Company.searchCompanyByFirstThreeLetters",
-                query = "SELECT * FROM COMPANIES" +
-                        " WHERE LEFT(COMPANY_NAME, 3) = :FIRSTTHREELETTERS",
+                query = "SELECT * FROM companies" +
+                        " WHERE LEFT(company_name, 3) = :FIRSTTHREELETTERS",
                 resultClass = Company.class
         ),
         @NamedNativeQuery(
                 name = "Company.searchCompanyByPartOfName",
-                query = "SELECT * FROM COMPANIES" +
-                        " WHERE COMPANY_NAME LIKE :ARG",
+                query = "SELECT * FROM companies" +
+                        " WHERE company_name LIKE :ARG",
                 resultClass = Company.class
         )
 })
 
 @Entity
-@Table(name = "COMPANIES")
+@Table(name = "companies")
 public class Company {
 
     private int id;
@@ -38,13 +38,13 @@ public class Company {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "COMPANY_ID", unique = true)
+    @Column(name = "company_id", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name = "COMPANY_NAME")
+    @Column(name = "company_name")
     public String getName() {
         return name;
     }

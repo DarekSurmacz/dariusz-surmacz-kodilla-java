@@ -95,7 +95,7 @@ class CompanyDaoTestSuite {
         companyDao.save(cccdddeee);
 
         //When
-        List<Company> result = companyDao.searchCompanyByThreeFirstLetters("aaa");
+        List<Company> result = companyDao.searchCompanyByFirstThreeLetters("aaa");
 
         //Then
         assertEquals(2, result.size());

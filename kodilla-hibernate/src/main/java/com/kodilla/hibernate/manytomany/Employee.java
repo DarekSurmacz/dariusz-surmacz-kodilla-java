@@ -7,7 +7,7 @@ import java.util.List;
 
 @NamedQueries({
         @NamedQuery(
-                name = "Employee.searchEmployeeByLastname",
+                name = "Employee.searchEmployeeByLastName",
                 query = "FROM Employee WHERE lastname = :LASTNAME"
         ),
         @NamedQuery(
@@ -17,7 +17,7 @@ import java.util.List;
 })
 
 @Entity
-@Table(name = "EMPLOYEES")
+@Table(name = "employees")
 public class Employee {
 
     private int id;
@@ -36,19 +36,19 @@ public class Employee {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "EMPLOYEE_ID", unique = true)
+    @Column(name = "employee_id", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name = "FIRSTNAME")
+    @Column(name = "firstname")
     public String getFirstname() {
         return firstname;
     }
 
     @NotNull
-    @Column(name = "LASTNAME")
+    @Column(name = "lastname")
     public String getLastname() {
         return lastname;
     }
@@ -67,9 +67,9 @@ public class Employee {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "JOIN_COMPANY_EMPLOYEE",
-            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
+            name = "join_company_employee",
+            joinColumns = {@JoinColumn(name = "employee_id", referencedColumnName = "employee_id")},
+            inverseJoinColumns = {@JoinColumn(name = "company_id", referencedColumnName = "company_id")}
     )
     public List<Company> getCompanies() {
         return companies;
