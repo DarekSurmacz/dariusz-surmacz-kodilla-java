@@ -41,7 +41,7 @@ class SearchFacadeTestSuite {
         companyDao.save(greatCompany);
 
         //When
-        List<Company> companies = searchFacade.searchCompanyByPartOfName("eat");
+        List<Company> companies = searchFacade.searchCompanyByPartOfName("reat");
 
         //Then
         assertEquals("Great Company", companies.get(0).getName());
@@ -57,10 +57,10 @@ class SearchFacadeTestSuite {
         companyDao.save(greatCompany);
 
         //When
-        List<Company> companies = searchFacade.searchCompanyByPartOfName("eat");
+        List<Company> companies = searchFacade.searchCompanyByPartOfName("reat");
 
         //Then
-        assertDoesNotThrow(() -> searchFacade.searchCompanyByPartOfName("eat"));
+        assertDoesNotThrow(() -> searchFacade.searchCompanyByPartOfName("reat"));
 
         //CleanUp
         companyDao.deleteById(greatCompany.getId());
@@ -73,7 +73,7 @@ class SearchFacadeTestSuite {
         employeeDao.save(janKowalski);
 
         //When
-        List<Employee> employees = searchFacade.searchEmployeeByPartOfName("ow");
+        List<Employee> employees = searchFacade.searchEmployeeByPartOfName("owa");
 
         //Then
         assertEquals("Jan", employees.get(0).getFirstname());
@@ -90,10 +90,10 @@ class SearchFacadeTestSuite {
         employeeDao.save(janKowalski);
 
         //When
-        List<Employee> employees = searchFacade.searchEmployeeByPartOfName("ow");
+        List<Employee> employees = searchFacade.searchEmployeeByPartOfName("owa");
 
         //Then
-        assertDoesNotThrow(() -> searchFacade.searchEmployeeByPartOfName("ow"));
+        assertDoesNotThrow(() -> searchFacade.searchEmployeeByPartOfName("owa"));
 
         //CleanUp
         employeeDao.deleteById(janKowalski.getId());
