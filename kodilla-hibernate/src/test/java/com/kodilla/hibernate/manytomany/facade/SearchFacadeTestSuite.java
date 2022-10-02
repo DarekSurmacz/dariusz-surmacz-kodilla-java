@@ -11,8 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class SearchFacadeTestSuite {
@@ -42,10 +41,25 @@ class SearchFacadeTestSuite {
         companyDao.save(greatCompany);
 
         //When
-        List<Company> companies = searchFacade.searchCompanyByPartOfName("eaat");
+        List<Company> companies = searchFacade.searchCompanyByPartOfName("eat");
 
         //Then
         assertEquals("Great Company", companies.get(0).getName());
+
+        //CleanUp
+        companyDao.deleteById(greatCompany.getId());
+    }
+
+    @Test
+    void testFindCompanyException() throws SearchException {
+
+        //Given
+        companyDao.save(greatCompany);
+
+        //When
+        List<Company> companies = searchFacade.searchCompanyByPartOfName("eat");
+
+        //Then
         assertDoesNotThrow(() -> SearchException.ERR_COMPANY_NOT_EXIST);
 
         //CleanUp
@@ -64,6 +78,21 @@ class SearchFacadeTestSuite {
         //Then
         assertEquals("Jan", employees.get(0).getFirstname());
         assertEquals("Kowalski", employees.get(0).getLastname());
+
+        //CleanUp
+        employeeDao.deleteById(janKowalski.getId());
+    }
+
+    @Test
+    void testFindEmployeeException() throws SearchException {
+
+        //Given
+        employeeDao.save(janKowalski);
+
+        //When
+        List<Employee> employees = searchFacade.searchEmployeeByPartOfName("ow");
+
+        //Then
         assertDoesNotThrow(() -> SearchException.ERR_EMPLOYEE_NOT_EXIST);
 
         //CleanUp
