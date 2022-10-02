@@ -11,21 +11,21 @@ public class PizzaOrderTestSuite {
     @Test
     public void testBasicPizzaOrderGetCost() {
         // Given
-        PizzaOrder theOrder = new BasicPizzaOrder();         // [8]
+        PizzaOrder theOrder = new BasicPizzaOrder();
         // When
-        BigDecimal calculatedCost = theOrder.getCost();    // [9]
+        BigDecimal calculatedCost = theOrder.getCost();
         // Then
-        assertEquals(new BigDecimal(15), calculatedCost);   // [10]
-    }                                                     // [11]
+        assertEquals(new BigDecimal(15), calculatedCost);
+    }
 
-    @Test                                                 // [12]
-    public void testBasicPizzaOrderGetDescription() {      // [13]
+    @Test
+    public void testBasicPizzaOrderGetDescription() {
         // Given
-        PizzaOrder theOrder = new BasicPizzaOrder();         // [14]
+        PizzaOrder theOrder = new BasicPizzaOrder();
         // When
-        String description = theOrder.getDescription();    // [15]
+        String description = theOrder.getDescription();
         // Then
-        assertEquals("Ordered pizza: tomato sauce, chesse", description);       // [16]
+        assertEquals("Ordered pizza: tomato sauce, chesse", description);
     }
 
     @Test

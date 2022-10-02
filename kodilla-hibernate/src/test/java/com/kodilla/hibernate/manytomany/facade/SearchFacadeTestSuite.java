@@ -60,7 +60,7 @@ class SearchFacadeTestSuite {
         List<Company> companies = searchFacade.searchCompanyByPartOfName("eat");
 
         //Then
-        assertDoesNotThrow(() -> SearchException.ERR_COMPANY_NOT_EXIST);
+        assertDoesNotThrow(() -> searchFacade.searchCompanyByPartOfName("eat"));
 
         //CleanUp
         companyDao.deleteById(greatCompany.getId());
@@ -93,7 +93,7 @@ class SearchFacadeTestSuite {
         List<Employee> employees = searchFacade.searchEmployeeByPartOfName("ow");
 
         //Then
-        assertDoesNotThrow(() -> SearchException.ERR_EMPLOYEE_NOT_EXIST);
+        assertDoesNotThrow(() -> searchFacade.searchEmployeeByPartOfName("ow"));
 
         //CleanUp
         employeeDao.deleteById(janKowalski.getId());
