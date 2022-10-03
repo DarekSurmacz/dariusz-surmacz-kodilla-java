@@ -56,10 +56,7 @@ class SearchFacadeTestSuite {
         //Given
         companyDao.save(greatCompany);
 
-        //When
-        List<Company> companies = searchFacade.searchCompanyByPartOfName("reat");
-
-        //Then
+        //When & Then
         assertDoesNotThrow(() -> searchFacade.searchCompanyByPartOfName("reat"));
 
         //CleanUp
@@ -89,10 +86,7 @@ class SearchFacadeTestSuite {
         //Given
         employeeDao.save(janKowalski);
 
-        //When
-        List<Employee> employees = searchFacade.searchEmployeeByPartOfName("owa");
-
-        //Then
+        //When & Then
         assertDoesNotThrow(() -> searchFacade.searchEmployeeByPartOfName("owa"));
 
         //CleanUp
